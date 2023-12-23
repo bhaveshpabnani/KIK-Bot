@@ -97,7 +97,7 @@ if API_O:
         # Create the ConversationChain object with the specified configuration
     Conversation = ConversationChain(
             llm=llm, 
-            prompt=ENTITY_MEMORY_CONVERSATION_TEMPLATE,
+            prompt=prompt,
             memory=st.session_state.entity_memory
         )  
 else:
