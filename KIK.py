@@ -79,26 +79,30 @@ prompt = PromptTemplate(
 memory = ConversationBufferMemory(memory_key="chat_history")
 
 
-# Create an OpenAI instance
-llm = OpenAI(openai_api_key="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")
 
-llm_chain = LLMChain(
-    llm=llm,
-    prompt=prompt,
-    verbose=True,
-    memory=memory,
-)
+# Ask the user to enter their OpenAI API key
+API_O = st.sidebar.text_input("API-KEY", type="password")
+
+# Session state storage would be ideal
+if API_O:
+    # Create an OpenAI instance
+    # Create an OpenAI instance
+    llm = OpenAI(openai_api_key=API_O)
+
 
     # Create a ConversationEntityMemory object if not already created
-if 'entity_memory' not in st.session_state:
-    st.session_state.entity_memory = ConversationEntityMemory(llm=llm, k=K )
+    if 'entity_memory' not in st.session_state:
+            st.session_state.entity_memory = ConversationEntityMemory(llm=llm, k=K )
         
         # Create the ConversationChain object with the specified configuration
-Conversation = ConversationChain(
-    llm=llm, 
-    prompt=ENTITY_MEMORY_CONVERSATION_TEMPLATE,
-    memory=st.session_state.entity_memory
-)  
+    Conversation = ConversationChain(
+            llm=llm, 
+            prompt=ENTITY_MEMORY_CONVERSATION_TEMPLATE,
+            memory=st.session_state.entity_memory
+        )  
+else:
+    st.sidebar.warning('API key required to try this app.The API key is not stored in any form.')
+    # st.stop() 
 
 
 
