@@ -20,6 +20,9 @@
 
 A live version of the KIK Bot application is available [here](https://kikbot.streamlit.app/).
 
+
+![image](https://github.com/bhaveshpabnani/KIK-Bot/assets/132581707/2559d18c-7537-4780-a187-05d7228698cd)
+
 ## Introduction
 
 KIK Bot is an AI-powered system designed to generate personalized content for users. Leveraging advanced natural language processing (NLP) techniques and machine learning models, KIK Bot aims to provide contextually relevant and engaging responses to user queries and prompts. This repository contains the codebase for the KIK Bot application, along with detailed documentation on its architecture, functionality, and implementation.
